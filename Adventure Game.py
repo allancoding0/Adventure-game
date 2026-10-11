@@ -12,7 +12,7 @@ def window():
     if windowstate == "closed":
         print ("It is closed.")
         print ("Type A to open it, Type B to leave")
-        choice = input()
+        choice = input().upper()
         if choice == "A":
             print("You open the window. A gust of wind rushes in. It smells better now.")
             windowstate = "open"
@@ -20,14 +20,14 @@ def window():
         elif choice == "B":
             print("You leave the window")
         else:
-            print("You did not type A or B. Make sure to do it in capitals.")
+            print("You did not type A or B.")
     elif windowstate == "open":
         print("An open window. It's dark and you cannot fit through.")
 def lightswitch():
     global light
     if light == "off":
         print("A light switch. Type A to turn on, Type B to leave")
-        choice = input()
+        choice = input().upper()
         if choice == "A" and windowstate == "closed":
             print("You slowly reach towards the switch.")
             time.sleep(0.5)
@@ -61,7 +61,7 @@ def lightswitch():
         elif choice == "B":
             print ("You leave the switch")
         else:
-            print("You did not type A or B. Make sure to do it in capitals.")
+            print("You did not type A or B.")
     elif light == "on":
         print("It is switched on. You don't see a reason to turn it off.")
 def poster(playerinventory):
@@ -69,7 +69,7 @@ def poster(playerinventory):
     if light =="on":
         print("It is of a band you do not know. You see a crack snaking from out behind the poster")
         print("Take poster down? Type A for yes, type B for no.")
-        choice = input()
+        choice = input().upper()
         if choice == "A":
             print("You rip the poster down")
             time.sleep(2)
@@ -83,15 +83,15 @@ def poster(playerinventory):
         elif choice == "B":
             print("You leave the poster. The band probably sucks anyway.")
         else:
-            print("You did not type A or B. Make sure to do it in capitals.")     
+            print("You did not type A or B.")     
     elif light == "off":
         print("It is too dark to make anything out on the poster. Probably useless.")
 def keyuse(playerinventory):
     global doorlock
     print("The key is small and golden.")
     print("""Please type what you would like to use it on, or type nevermind if you want
-    to put it back in your inventory (lowercase only)""")
-    choice = input()
+    to put it back in your inventory.""")
+    choice = input().lower()
     if choice == "door":
         print ("""There is a lock. You inset the key and twist it.""")
         time.sleep(0.5)
@@ -119,7 +119,7 @@ def door():
         print ("""It is a door. Quite tall, and has a lock.""")
     elif doorlock == "unlocked":
         print ("""The door is unlocked. Open it? Type A for yes, type B for no.""")
-        choice = input()
+        choice = input().upper()
         if choice == "A":
             print("You push open the door...")
             time.sleep(3)
@@ -144,8 +144,8 @@ Adjacent to it is a small window, but it seems dark outside. Last you see a whit
 next to the door. It must be a lightswitch.""")
 time.sleep(1)
 while escape == False:
-    print("Choose something to inspect around you or in your inventory (Please type in lowercase)")
-    playerinspect = input()
+    print("Choose something to inspect around you or in your inventory")
+    playerinspect = input().lower()
     if playerinspect == "window":
         window()
     elif playerinspect == "lightswitch":
@@ -159,7 +159,7 @@ while escape == False:
     else:
         print("""Whatever you typed either is not an option or is spelled wrong.
         Make sure to type only the word. It may be phrased differently. Try to type it
-        as it is spelled to you in game and make sure you type in lowercase.""")
+        as it is spelled to you in game.""")
 time.sleep(2)
 print("Congratulations! You escaped.")
 
